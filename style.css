@@ -3,9 +3,9 @@
     --cyan: hsl(180, 62%, 55%);
     --orange: hsl(34, 97%, 64%);
     --blue: hsl(212, 86%, 64%);
-    --very-dark-blue: hsl(234, 12%, 34%);
-    --grayish-blue: hsl(229, 6%, 66%);
-    --very-light-gray: hsl(0, 0%, 98%);
+    --verydarkblue: hsl(234, 12%, 34%);
+    --grayishblue: hsl(229, 6%, 66%);
+    --verylightgray: hsl(0, 0%, 98%);
 }
 
 * {
@@ -13,259 +13,106 @@
     padding: 0;
     box-sizing: border-box;
 }
-
-@font-face {
-    font-family: 'Poppins ExtraLight';
-    src: url('./fonts/Poppins/Poppins-ExtraLight.ttf') format('truetype');
-    font-style: normal;
+body{
+    background-color: var(--verylightgray);
+    font-family: "Poppins", serif;
     font-weight: normal;
-}
-@font-face {
-    font-family: 'Poppins Light';
-    src: url('./fonts/Poppins/Poppins-Light.ttf') format('truetype');
     font-style: normal;
-    font-weight: normal;
-}
-@font-face {
-    font-family: 'Poppins Bold';
-    src: url('./fonts/Poppins/Poppins-SemiBold.ttf') format('truetype');
-    font-style: normal;
-    font-weight: normal;
-}
-
-body {
-    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    font-size: 15px;
-    background-color: var(--very-light-gray);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    padding-top: 70px;
+    padding-bottom: 70px;
 
-.container {
+}
+.container{
     display: flex;
     flex-direction: column;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    padding-top: 80px;
-    padding-bottom: 90px;
-    gap: 40px;
+    gap: 3.5rem;
+    width: min(90%, 60rem);
 }
-
-.page-header {
+header{
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 0.2rem;
 }
-h1{
-    font-family: 'Poppins ExtraLight';
-    font-weight: 500;
-    font-style: normal;
-    color: var(--grayish-blue);
-}
-h2{
-    font-family: 'Poppins Bold';
-    font-weight: 500;
-    color: var(--very-dark-blue);
-}
-h3{
-    font-family: 'Poppins Bold';
-    font-weight: 500;
-    color: var(--very-dark-blue);
-}
-p{
-    font-family: 'Poppins Light';
-    font-weight: 600;
-    font-style: normal;
-    color: var(--grayish-blue);
-    display: block;
-}
-.page-header p{
-    text-align: center;
-    max-width: 380px;
-    margin: 13px auto;
-}
-.page-body{
-    gap: 30px;
-    margin-top: 20px;
+.cards{
     display: grid;
-    max-width: 100%;
+    gap: 1.5rem;
 }
 .card{
     background-color: white;
-    padding: 25px;
-    border-radius: 8px;
-    border-top: 4px solid;
+    padding: 20px;
+    box-shadow: 5px 7px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    align-items: start;
+    gap: 1rem;
+    width: min(100%, 20rem);
+    margin-inline: auto;
+}
+.card p{
+    text-align: start;
+    font-size: clamp(0.75rem, 2vw, 0.8rem);
+    position: relative;
+    bottom: 7px;
+}
+.icon{
+    margin-left: auto;
+    width: min(100%, 5rem);
+    padding: 10px;
+}
+h1, h2{
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 200;
+    color: var(--verydarkblue);
+}
+h2{
+    font-weight: 600;
+}
+p{
+    font-size: clamp(0.85rem, 2vw, 0.9rem);
+    color: var(--grayishblue);
+    font-weight: 400;
+    width: min(90%, 26rem);
+    text-align: center;
+}
+h3{
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    color: var(--verydarkblue);
+    font-weight: 600;
 }
 #box1{
-    border-color: var(--cyan);
+    border-top: 4px solid var(--cyan);
 }
 #box2{
-    border-color: var(--red);
+    border-top: 4px solid var(--red);
 }
 #box3{
-    border-color: var(--orange);
+    border-top: 4px solid var(--orange);
 }
 #box4{
-    border-color: var(--blue);
-}
-.card-icon{
-    max-width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: end;
-    padding-top: 20px;padding-bottom: 1px;
-}
-#icon{
-    max-width: 17%;
-}
-@media screen and (max-width: 600px) {
-    :root{
-        --h1: 1.5em;
-        --h2: 1.5em;
-        --h3: 1.1em;
-        --p1: 0.85em;
-        --p2: 0.8em;
-    }
-    .container{
-        max-width: 80%;
-    }
-    h1{
-        font-size: var(--h1);
-    }
-    h2{
-        font-size: var(--h2);
-    }
-    h3{
-        font-size: var(--h3);
-    }
-    .page-header p{
-        font-size: var(--p1);
-    }
-    .card p{
-        font-size: var(--p2);
-    }
-    
+    border-top: 4px solid var(--blue);
 }
 
-@media screen and (min-width: 601px) and (max-width:1024px) {
-    :root{
-        --h1: 2em;
-        --h2: 2em;
-        --h3: 1.1em;
-        --p1: 0.9em;
-        --p2: 0.8em;
-    }
-    .container{
-        padding-top: 50px;
-        padding-left: 90px;
-        padding-right: 90px;
-    }
-    h1{
-        font-size: var(--h1);
-    }
-    h2{
-        font-size: var(--h2);
-    }
-    h3{
-        font-size: var(--h3);
-    }
-    .card{
-       max-width: 100%;
-    }
-    .page-body{
+@media screen and (min-width: 600px) {
+    .cards{
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, auto);
     }
-    .page-header p{
-        font-size: var(--p1);
-    }
-    .card p{
-        font-size: var(--p2);
-    }
-    #box1{
-        grid-column-start: 1;
-        grid-row-start: 2;
-        position: relative;
-        bottom: 120px;
-    }
     #box2{
-        grid-column-start: 2;
-        grid-row-start: 1;
+        grid-column: 2 / 3;
     }
     #box3{
-        grid-column-start: 2;
-        grid-row-start: 2;
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
     }
-    #box4{
-        grid-column-start: 3;
-        grid-row-start: 2;
+    #box1, #box4{
         position: relative;
-        bottom: 120px;
-    }
-}
-
-@media screen and (min-width: 1025px) {
-    :root{
-        --h1: 2em;
-        --h2: 2em;
-        --h3: 1.1em;
-        --p1: 0.95em;
-        --p2: 0.85em;
-    }
-    .container{
-        padding-top: 50px;
-        padding-left: 90px;
-        padding-right: 90px;
-    }
-    h1{
-        font-size: var(--h1);
-    }
-    h2{
-        font-size: var(--h2);
-    }
-    h3{
-        font-size: var(--h3);
-    }
-    .card{
-       max-width: 100%;
-    }
-    .page-body{
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, auto);
-    }
-    .page-header p{
-        font-size: var(--p1);
-       
-    }
-    .card p{
-        font-size: var(--p2);
-    }
-    #box1{
-        grid-column-start: 1;
-        grid-row-start: 2;
-        position: relative;
-        bottom: 120px;
-    }
-    #box2{
-        grid-column-start: 2;
-        grid-row-start: 1;
-    }
-    #box3{
-        grid-column-start: 2;
-        grid-row-start: 2;
-    }
-    #box4{
-        grid-column-start: 3;
-        grid-row-start: 2;
-        position: relative;
-        bottom: 120px;
+        top: 150px;
     }
 }
